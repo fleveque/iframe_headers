@@ -1,10 +1,8 @@
 # IframeHeaders
 
-Set HTTP headers so your application can work inside an iframe, allowing cookie setting, etc.
+Set HTTP headers so your application can work inside an iframe, allowing cookie setting, etc. It deletes X-Frame-Options header, and add a fake P3P one.
 
-It deletes X-Frame-Options header, and add a fake P3P one.
-
-Warning: This header combination could be considered insecure, so use it only for a good reason.
+Warning: This header combination could be considered insecure, so use it only for a good reason. This was made mainly to learn elixir.
 
 ## Installation
 
@@ -31,8 +29,16 @@ Warning: This header combination could be considered insecure, so use it only fo
       [applications: [:iframe_headers]]
     end
     ```
-  And use the plug where at your needs
+  And use the plug at your needs
 
     ```elixir
     plug IframeHeaders
     ```
+
+## Example
+
+I made a simple server app to try it https://github.com/fleveque/iframe_headers_demo
+
+## Thanks
+
+Based on [How to write a plug package and publish it on hex](http://www.cultivatehq.com/posts/how-to-write-a-plug-package-and-publish-it-on-hex/) by Mark Connell. Nice tutorial to create your own plug package.
