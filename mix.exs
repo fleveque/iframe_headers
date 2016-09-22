@@ -3,6 +3,8 @@ defmodule IframeHeaders.Mixfile do
 
   def project do
     [app: :iframe_headers,
+     description: "Set HTTP headers to work inside an iframe.",
+     package: package,
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
@@ -28,6 +30,15 @@ defmodule IframeHeaders.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:cowboy, "~> 1.0"},
-     {:plug, "~> 1.2"}]
+     {:plug, "~> 1.2"},
+     {:earmark, "~> 1.0", only: :dev},
+     {:ex_doc, "~> 0.13.2", only: :dev}]
+  end
+
+  defp package do
+    [maintainers: ["Francesc Leveque"],
+     licenses: ["MIT"],
+     links: %{github: "https://github.com/fleveque/iframe_headers"},
+     files: ~w(lib mix.exs README.md)]
   end
 end
